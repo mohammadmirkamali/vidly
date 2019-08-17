@@ -1,0 +1,60 @@
+.btn1 {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none; /*remove the line under text*/
+    padding: 1.5rem 4rem; /*first for top and buttom and the second for left and right*/
+    display: inline-block; /*now it have own space and not cover other block's space*/
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+    // color: antiquewhite;
+  }
+
+  &:hover {
+    /*when the mouse go on it*/
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    /*first:X second:Y third:blur last:color*/
+
+    &::after {
+      transform: scaleX(1.5) scaleY(1.6); /*the size is 1.5 times*/
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    /*when click on it*/
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: ""; /*it's necessary*/
+    display: inline-block; /*it's necessary*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /*it's behind content not top of it*/
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+    /*now the button is not visible at start*/
+  }
+}

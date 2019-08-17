@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+  /*universal selector*/
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /*root font-size to convert everything to rem*/
+  // font-size: 62.5%; /*defoult is 16px so 10/16*/
+}
+
+body {
+  box-sizing: border-box;
+}
